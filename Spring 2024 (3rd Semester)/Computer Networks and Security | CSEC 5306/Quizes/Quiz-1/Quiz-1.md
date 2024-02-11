@@ -3,7 +3,6 @@ CSEC 5306 | Computer Networks and Security <br />
 Prof. Alsmadi <br />
 Quiz 1: Crypto Lab -- Secret-Key Encryption
 
-----
 <br />
 
 # Lab Setup
@@ -47,10 +46,12 @@ Quiz 1: Crypto Lab -- Secret-Key Encryption
    ![Screenshot 2024-02-05 at 2 57 45 PM](https://github.com/Cyb3rZ3d/MS-CSEC/assets/108482007/1fef646e-0938-4e90-aded-40f3cee7bb9e)
 
 
+<br/>
+<br/>
 
 # Lab Environment
 
-Download the Crypto Lab -- Secret-Key Encryption `Labsetup.zip` file:
+1. Download the Crypto Lab -- Secret-Key Encryption `Labsetup.zip` file:
    
    `
    sudo curl -o Labsetup.zip https://seedsecuritylabs.org/Labs_20.04/Files/Crypto_Encryption/Labsetup.zip
@@ -59,6 +60,7 @@ Download the Crypto Lab -- Secret-Key Encryption `Labsetup.zip` file:
    ![Screenshot 2024-02-05 at 4 02 40 PM](https://github.com/Cyb3rZ3d/MS-CSEC/assets/108482007/d23bcea1-3bc4-49e5-bb7b-cf3b179ae49d)
 
 
+2. 
 
 
 
