@@ -9,7 +9,6 @@ Due: March 1, 2024 <br>
 <br>
 
 
-
 Using the Wireshark Protocol Hierarchy we can see and general summary of the entirety of the pcap's protocols and packets.
 
 ![alt text](<Screenshot 2024-03-05 at 10.25.17 AM.png>)
