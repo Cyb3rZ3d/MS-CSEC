@@ -1,6 +1,6 @@
 
 
-# Lab Setup
+# Google Cloud Platform (GCP) SEED 2.0 Ubuntu Lab Setup
 
 1. GCP instance build and firewalls
 
@@ -56,4 +56,33 @@
     ![alt text](<Screenshot 2024-08-21 at 3.51.12 PM.png>)
 
 
-2. 
+# Shellcode Lab
+
+1. Created a new directory for the Shellcode lab and downloaded the zip file `Labsetup.zip` and unziped it to obtain the required files.  The following are commands used to create a directory, download a zip file, and unzip the file.
+
+    ![alt text](<Screenshot 2024-08-27 at 12.50.53 PM.png>)
+
+
+## Task 1
+
+1. Samlple of `hello.s` amd64 assembly program
+
+    ![alt text](<Screenshot 2024-08-27 at 7.45.23 PM.png>)
+
+
+2. Compiling assembly code to object code and linking to generate final binary
+
+    ![alt text](<Screenshot 2024-08-27 at 7.42.29 PM.png>)
+
+
+3. Extracting machine code (shellcode) from a executable using `objdump` to disassemble the object file or executable using the command `objdump -Mintel -d hello.o`.
+
+    ![alt text](<Screenshot 2024-08-27 at 7.59.02 PM.png>)
+
+
+4. Used the command `xxd -p -c 20 hello.o` to print out the binary of the machine code
+
+    ![alt text](<Screenshot 2024-08-27 at 8.08.08 PM.png>)
+
+
+## Task 2 
