@@ -85,4 +85,7 @@
     ![alt text](<Screenshot 2024-08-27 at 8.08.08 PM.png>)
 
 
-## Task 2 
+## Task 2: Writing Shellcode (Approach 1)
+
+### Task 2.a. Understand the code
+
