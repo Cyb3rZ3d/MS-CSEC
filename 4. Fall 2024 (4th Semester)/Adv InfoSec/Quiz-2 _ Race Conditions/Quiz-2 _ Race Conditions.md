@@ -2,7 +2,7 @@ Ruben Valdez <br>
 CSEC 5327 _ Advanced InfoSec <br>
 Prof. Dr. Alsmadi <br>
 Quiz-2 _ Race Conditions
-
+Due: Sept. 15
 ==========================
 
 <br>
