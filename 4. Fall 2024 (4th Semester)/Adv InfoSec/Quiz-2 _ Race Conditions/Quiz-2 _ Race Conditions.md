@@ -130,6 +130,12 @@ Let's open up a 10-second time window by exploiting the race condition in the `S
     ![alt text](<Screenshot 2024-09-10 at 2.28.00 PM.png>)
 
 
+Task 2.B: 
+
+
+
+
+
 
 # Summary
 
