@@ -19,8 +19,8 @@ from scipy.stats import chi2_contingency
 
 def load_and_preprocess_data(file_path):
     """
-    Load the dataset and perform preprocessing steps such as handling missing values,
-    encoding categorical features, and generating time-based features.
+    Load the dataset from the given file path and prepare it for analysis.
+    This includes handling missing values and encoding categorical data.
     """
     # Load the dataset
     df = pd.read_csv(file_path)
@@ -34,7 +34,7 @@ def load_and_preprocess_data(file_path):
         df['Hour'] = df['Attack Time'].dt.hour
         df['DayOfWeek'] = df['Attack Time'].dt.dayofweek  # Monday=0, Sunday=6
     else:
-        print("Some of the necessary time columns are missing. Time-based analysis will be skipped.")
+        print("Some time columns are missing, skipping time-based analysis.")
         df['Hour'] = None
         df['DayOfWeek'] = None
 
@@ -48,29 +48,26 @@ def load_and_preprocess_data(file_path):
     label_encoder = LabelEncoder()
     df['Browser'] = label_encoder.fit_transform(df['Browser'])
     df['Device/OS'] = label_encoder.fit_transform(df['Device/OS'])
-    df['Traffic Type'] = label_encoder.fit_transform(df['Traffic Type'])  # Assuming Traffic Type is the attack type
+    df['Traffic Type'] = label_encoder.fit_transform(df['Traffic Type'])
     df['Protocol'] = label_encoder.fit_transform(df['Protocol'])
 
-    # Map encoded values back to meaningful names
+    # Map encoded values to meaningful names
     df['Browser Name'] = df['Browser'].map(browser_mapping)
     df['OS Name'] = df['Device/OS'].map(os_mapping)
     df['Day of Week Name'] = df['DayOfWeek'].map(day_of_week_mapping)
     df['Traffic Type Name'] = df['Traffic Type'].map(traffic_type_mapping)
-
-    # Ensure all browsers are included in the Browser Name category, even if missing
-    df['Browser Name'] = pd.Categorical(df['Browser Name'], categories=list(browser_mapping.values()))
 
     return df
 
 
 def train_random_forest(df):
     """
-    Train a Random Forest model using the selected features and the attack type as the target variable.
-    Return the trained model and test data.
+    Train a Random Forest model using the dataset and return the trained model
+    along with the test set for evaluation.
     """
-    # Feature Selection for prediction model
+    # Select features for the model
     X = df[['Source Port', 'Destination Port', 'Packet Length', 'Protocol', 'Browser', 'Device/OS']]
-    y = df['Traffic Type']  # Target variable (attack type)
+    y = df['Traffic Type']  # Target variable
 
     # Split the dataset into training and testing sets
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
@@ -89,14 +86,8 @@ def train_random_forest(df):
 
 def evaluate_model(rf_model, X_test, y_test, df):
     """
-    Evaluate the trained Random Forest model by displaying accuracy, classification report, and confusion matrix.
-    This function replaces numeric class labels (0, 1, 2, etc.) with meaningful attack type names.
-    
-    Args:
-    - rf_model: The trained Random Forest model
-    - X_test: The test data for evaluation
-    - y_test: The actual labels of the test data
-    - df: The original dataframe containing the 'Traffic Type Name' mapping
+    Evaluate the Random Forest model by showing the accuracy, classification report,
+    and confusion matrix with meaningful attack type names.
     """
     # Model predictions
     y_pred = rf_model.predict(X_test)
@@ -104,11 +95,11 @@ def evaluate_model(rf_model, X_test, y_test, df):
     # Get the mapping for Traffic Type Name
     traffic_type_mapping = dict(df[['Traffic Type', 'Traffic Type Name']].drop_duplicates().values)
 
-    # Replace numeric labels with actual Traffic Type names for the classification report
+    # Replace numeric labels with actual Traffic Type names
     y_test_named = pd.Series(y_test).map(traffic_type_mapping)
     y_pred_named = pd.Series(y_pred).map(traffic_type_mapping)
 
-    # Model evaluation
+    # Display evaluation metrics
     print("Accuracy Score:", accuracy_score(y_test_named, y_pred_named))
     print("\nClassification Report:\n", classification_report(y_test_named, y_pred_named))
 
@@ -123,7 +114,7 @@ def evaluate_model(rf_model, X_test, y_test, df):
 
 def plot_feature_importance(rf_model, X):
     """
-    Display the feature importance plot, showing which features contributed the most to the Random Forest model's predictions.
+    Plot the feature importance to show which features had the biggest impact on the model.
     """
     feature_importance = rf_model.feature_importances_
     features = X.columns
@@ -135,11 +126,10 @@ def plot_feature_importance(rf_model, X):
 
 def analyze_attack_time_correlation(df):
     """
-    Analyzes the correlation between attack type and the time of attack (hour of day and day of the week).
-    Displays results using bar plots.
+    Analyze how different attack types are distributed by time (hour of day and day of the week).
     """
     if df['Hour'].isnull().all():
-        print("No time-based data available for analysis.")
+        print("No time data available.")
         return
 
     plt.figure(figsize=(12, 6))
@@ -157,15 +147,14 @@ def analyze_attack_time_correlation(df):
 
 def analyze_source_port_correlation(df):
     """
-    Analyzes the correlation between source port and attack type by generating a heatmap.
-    The heatmap displays the number of occurrences of each attack type based on the originating source port.
-    A chi-square test is performed to determine if the source port is statistically significant in predicting attack type.
+    Analyze how attack types are related to the source port using a heatmap.
+    Perform a chi-square test to check if the source port is significant in predicting attack type.
     """
     port_vs_attack = pd.crosstab(df['Source Port'], df['Traffic Type Name'])
     chi2, p, dof, expected = chi2_contingency(port_vs_attack)
     print(f"Chi-square test results - p-value: {p}")
     if p < 0.05:
-        print("Source Port is statistically significant in predicting attack type.")
+        print("Source Port has a significant impact on attack type.")
     else:
         print("No strong correlation between Source Port and attack type.")
     plt.figure(figsize=(10, 8))
@@ -176,8 +165,7 @@ def analyze_source_port_correlation(df):
 
 def analyze_browser_os_correlation(df):
     """
-    Analyzes the correlation between browsers/operating systems and attack types by generating bar plots.
-    Displays the distribution of different attack types across various browsers and operating systems.
+    Analyze which browsers and operating systems are targeted more frequently by attack types.
     """
     plt.figure(figsize=(12, 6))
     sns.countplot(x='Browser Name', hue='Traffic Type Name', data=df, palette='Set3')
@@ -194,8 +182,8 @@ def analyze_browser_os_correlation(df):
 
 def main():
     """
-    Main function to run the program, which includes loading data, training a model, evaluating it,
-    and performing exploratory data analysis on attack type correlations.
+    The main function runs the program to load the data, train the model, evaluate it,
+    and perform attack type analysis based on time, source port, browsers, and operating systems.
     """
     file_path = '/Users/cyberzed/Desktop/updated_cybersecurity_attacks.csv'
 
@@ -206,7 +194,7 @@ def main():
     rf_model, X_test, y_test = train_random_forest(df)
 
     # Evaluate the model
-    evaluate_model(rf_model, X_test, y_test, df)  # Pass the dataframe to retain 'Traffic Type Name' mapping
+    evaluate_model(rf_model, X_test, y_test, df)
 
     # Plot feature importance
     plot_feature_importance(rf_model, df[['Source Port', 'Destination Port', 'Packet Length', 'Protocol', 'Browser', 'Device/OS']])
@@ -219,4 +207,3 @@ def main():
 
 if __name__ == "__main__":
     main()
- 
