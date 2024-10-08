@@ -77,6 +77,28 @@ Due: Oct. 4th, 2024 <br>
     
     `sudo /sbin/sysctl -w kernel.randomize_va_space=0`
 
+    ![alt text](<Screenshot 2024-10-06 at 9.26.51 PM.png>)
+
+- Let's review and fix the `worm.py` file.
+
+
+    ![alt text](<Screenshot 2024-10-06 at 8.45.04 PM.png>)
+
+    - We can see the smiley face indicating the attack was successful.
+
+        ![alt text](<Screenshot 2024-10-06 at 8.45.34 PM.png>)
+
+    - updated the file after making changes and executing the file. 
+    
+        ![alt text](<Screenshot 2024-10-06 at 8.46.47 PM.png>)
+
+
+
+Target
+
+
+
+
 
 
 <br>
