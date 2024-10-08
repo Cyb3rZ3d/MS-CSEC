@@ -2,7 +2,7 @@ Ruben Valdez <br>
 CSEC 5327 _ Advanced InfoSec <br>
 Prof. Dr. Alsmadi <br>
 Quiz-4 _ Morris Worm <br>
-Due: Oct. 4th, 2024 <br>
+Due: Oct. 8th, 2024 <br>
 ===
 
 <br>
@@ -94,23 +94,8 @@ Due: Oct. 4th, 2024 <br>
 
 
 
-Target
-
-
-
-
-
-
 <br>
 
-# Task 3: Self Duplication
+# Summary
 
-
-
-<br>
-
-# Task 4: Propagation
-
-
-
-
+It was evident I was having issues from the start of the lab tasks.  I have a strong feeling it was stemming from the worm.py code.  I was unable to successfully execute the Morris Worm Attack..   
