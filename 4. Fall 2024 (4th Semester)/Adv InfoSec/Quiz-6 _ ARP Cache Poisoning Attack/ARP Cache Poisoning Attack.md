@@ -1,7 +1,7 @@
 Ruben Valdez <br /> 
 CSEC 5327 | Advanced InfoSec  <br /> 
 Prof. Izzat Alsmadi  <br /> 
-Tuesday’s@ 4pm  <br /> 
+Tuesday’s@ 7pm  <br /> 
 ***Quiz 06 - ARP Poisoning Attack***
 
 <br />
