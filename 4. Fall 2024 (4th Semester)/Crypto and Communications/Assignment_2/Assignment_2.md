@@ -32,6 +32,18 @@ http://cl.xytify.net/cgi-bin/hash.py
 password:  ^YHN6yhn
 
 
+
+
+![bunny](https://github.com/user-attachments/assets/d5db9a34-cdf2-4dc1-a0f8-4d860bb6baef)
+
+![VFA103](https://github.com/user-attachments/assets/a19fb2f4-bb8c-48cb-a3d2-c2d60f707804)
+
+
+
+
+
+
+
 <br>
 
 # Task 3:  Sign your name on the list at dfw.xytify.net by hashing the value at dfw.xytify.net/hash.txt, ssh'ing in to the machine, and editing the file named editme. The password is also the username. If you need a hint, the combo is used in the Oath of Office taken by United States government officials (50 points).
