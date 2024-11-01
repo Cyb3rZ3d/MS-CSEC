@@ -22,26 +22,18 @@ http://cl.xytify.net/cgi-bin/hash.py
 
 # Task 2:   Generate your own nested steganographic solution. It must include some secondary authentication mechanic. Provide the base message, the cover file, and methodology as a detailed write up (50 points).
 
-1. 
+1. File prep
 
-    - Created a text file names `EnlistedOath.txt`.
+    - Created a text file namedd `EnlistedOath.txt`.
     - Copy/Pasted in the text file the Enlisted Oath, The Sailor's Creed, and the Navy Song - Anchors Aweigh.
     - 
 
+2. 
+
+
+
 
 password:  ^YHN6yhn
-
-
-
-
-![bunny](https://github.com/user-attachments/assets/d5db9a34-cdf2-4dc1-a0f8-4d860bb6baef)
-
-![VFA103](https://github.com/user-attachments/assets/a19fb2f4-bb8c-48cb-a3d2-c2d60f707804)
-
-
-
-
-
 
 
 <br>
