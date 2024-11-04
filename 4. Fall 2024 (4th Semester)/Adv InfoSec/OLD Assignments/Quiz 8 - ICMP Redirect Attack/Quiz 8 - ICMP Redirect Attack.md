@@ -267,9 +267,17 @@ Same as with Q1 and Q2, my result's are the same.  I am unable to figure the iss
     ![alt text](<Screenshot 2024-11-03 at 6.13.57 PM.png>)
 
 
-5. 
+5. This is the packet output.   
 
-![alt text](<Screenshot 2024-11-03 at 6.50.01 PM.png>)
+    ![alt text](<Screenshot 2024-11-03 at 6.50.01 PM.png>)
 
 
+# Summary:
 
+This ICMP Redirect lab was cool to get into and test.  Although, I was having much difficulty attempting to replicate what I needed to.  Not really sure what I was doing wrong outside of manipulating the config files and python code.   
+
+Resource I used to help with my mistakes but was still encountering issues with what i was experiencing:
+
+https://youtu.be/gsxfZqZxXXI?si=lIuivgNvjAcemNUE
+
+https://youtu.be/gXV_I_86Y5Q?si=Jy2fDN1i0KI_a1La
