@@ -27,6 +27,35 @@ https://github.com/Aleem20/Kevin-Mitnick-Attack
     ![alt text](<Screenshot 2024-11-06 at 1.41.30 PM.png>)
 
 
+2. Completed Docker maintenance to shutdown any prior docker containers
+
+        sudo docker-compose ps
+        sudo docker-compose down
+
+    ![alt text](<Screenshot 2024-11-06 at 2.04.50 PM.png>)
+
+    
+    Examined all Docker networks BEFORE starting and running any new containers:
+
+        sudo docker network ls
+
+    ![alt text](<Screenshot 2024-11-06 at 2.08.33 PM.png>)
+
+
+3. Pruned all unused docker resources.  Doing this does the following:
+
+    - all stopped containers
+    - all networks not used by at least one container
+    - all anonymous volumes not used by at least one container
+    - all images without at least one container associated to them
+    - all build cache
+
+
+            docker system prune -a --volumes
+
+
+
+
 
 ## Task 1: Simulated SYN flooding
 
