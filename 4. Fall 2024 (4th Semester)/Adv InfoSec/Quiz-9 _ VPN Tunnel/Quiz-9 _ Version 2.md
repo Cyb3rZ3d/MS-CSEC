@@ -1,10 +1,94 @@
+Ruben Valdez <br> 
+CSEC 5327 | Advanced InfoSec  <br> 
+Prof. Izzat Alsmadi  <br> 
+Tuesday’s@ 7pm  <br> 
+
+# ***Quiz 9 - VPN Tunnel***
+
+<br><br>
+
+# Lab Setup
+
+- The following are commands I took downloading the Labsetup.zip file from the VPN Tunneling lab page on SEED Labs 2.0:
+
+        cd ~/Documents/AdvInfoSec
+        
+        mkdir VPNtunneling_Quiz-9
+        
+        cd VPNtunneling_Quiz-9
+        
+        curl -o Labsetup.zip https://seedsecuritylabs.org/Labs_20.04/Files/VPN_Tunnel/Labsetup.zip
+        
+        unzip Labsetup.zip
+
+    ![alt text](<Screenshot 2024-11-09 at 7.10.22 AM.png>)
+
+
+- Preliminary Docker maintenance to prune any and all prior running or down containers:
+
+        docker-compose down --remove-orphans
+
+        docker system prune -a --volumes
+
+    ![alt text](<Screenshot 2024-11-09 at 7.54.46 AM.png>)
+
+<br>
+
 # Task 1: Network Setup
 
-1. 
+1. Building and starting the docker network:
 
-2. 
+    Build the network using 
+        
+        `sudo docker-compose build`
 
-3. 
+    Start the containers using 
+    
+        `sudo docker-compose up`
+
+    ![alt text](<Screenshot 2024-11-09 at 10.18.22 AM.png>)
+
+
+2. Opened a new terminal and remoted into each container.
+
+    - Labs network diagram:
+        ![alt text](<Screenshot 2024-11-09 at 10.32.24 AM.png>)
+
+    - Remoted into each container in the network and ran `ifconfig` to gather additional network details:
+
+            sudo docker exec -it client-10.9.0.5 /bin/bash
+            sudo docker exec -it host-192.168.60.5 /bin/bash
+            sudo docker exec -it host-192.168.60.6 /bin/bash
+            sudo docker exec -it host-192.168.60.7 /bin/bash
+            sudo docker exec -it server-router /bin/bash
+
+        ![alt text](<Screenshot 2024-11-09 at 10.45.17 AM.png>)
+        ![alt text](<Screenshot 2024-11-09 at 10.45.34 AM.png>)
+        ![alt text](<Screenshot 2024-11-09 at 10.45.52 AM.png>)
+        ![alt text](<Screenshot 2024-11-09 at 10.46.08 AM.png>)
+
+    - Using `ping` I tested the network connections on the following containers and printed the results to `log.txt` file.
+
+        - Host U
+
+                ping 10.9.0.11 > log.txt
+
+                cat log.txt
+
+                ping 192.168.60.5 > log.txt
+
+                cat log.txt
+
+            ![alt text](<Screenshot 2024-11-09 at 10.59.10 AM.png>)
+            
+        - VPN Server
+
+                ping 192.168.60.5 > log.txt
+
+                cat log.txt
+
+            ![alt text](<Screenshot 2024-11-09 at 10.59.58 AM.png>)
+
 
 ***Task 1 lab testing Questions:***
 
@@ -353,7 +437,7 @@ Next steps will be provided chronologically.
 
         - `Host-V|192.168.60.5`; 4th Terminal   <br>  ![alt text](<Screenshot 2024-11-15 at 1.33.40 AM.png>)
 
-        
+
 
 
 
