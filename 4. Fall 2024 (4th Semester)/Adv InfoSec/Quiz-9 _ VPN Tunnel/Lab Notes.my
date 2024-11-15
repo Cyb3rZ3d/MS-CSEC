@@ -1,0 +1,14 @@
+
+
+To modify each terminal to list the container name
+
+        echo $PS1
+
+        export PS1="Host-U|10.9.0.5:\w\n\$>"
+
+
+        export PS1="Host-V|192.168.60.5:\w\n\$>"
+
+        export PS1="H-6|192.168.60.6:\w\n\$>"
+
+        export PS1="H-7|192.168.60.7:\w\n\$>"
