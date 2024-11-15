@@ -114,37 +114,37 @@ This assignment is designed to introduce students to the principles of quantum c
 
     - How quantum computing could impact existing cryptographic techniques in the future (5 points)
 
-    ```
-    Quantum cryptography, particularly Quantum Key Distribution (QKD), is a revolutionary approach to secure communication. By leveraging the principles of quantum mechanics, it offers the potential for theoretically unbreakable encryption. However, despite its promise, implementing quantum cryptographic systems faces significant challenges in practice. Additionally, the advent of quantum computing introduces new risks to existing cryptographic techniques, necessitating advancements in both fields.
+## ***ESSAY***:
 
-    One major challenge in implementing quantum cryptographic systems is their high cost. Specialized equipment, such as single-photon detectors, quantum repeaters, and dedicated fiber-optic channels, makes QKD prohibitively expensive for most organizations. This limits its accessibility, particularly for small and medium-sized enterprises. Furthermore, the infrastructure requirements for QKD systems are substantial. They often necessitate dedicated hardware and communication channels, such as leased optical fibers or free-space optical links. These requirements not only increase costs but also make integration with existing communication networks difficult.
+Quantum cryptography, particularly Quantum Key Distribution (QKD), is a revolutionary approach to secure communication. By leveraging the principles of quantum mechanics, it offers the potential for theoretically unbreakable encryption. However, despite its promise, implementing quantum cryptographic systems faces significant challenges in practice. Additionally, the advent of quantum computing introduces new risks to existing cryptographic techniques, necessitating advancements in both fields.
 
-    Another limitation of QKD is its range. Photon loss in optical fibers restricts the effective distance of QKD to a few hundred kilometers. Extending this range requires quantum repeaters, which are still in experimental stages and not widely available. Additionally, QKD systems frequently rely on trusted relay nodes to extend communication distances. These nodes, while solving some distance issues, introduce vulnerabilities to insider attacks, increasing overall security risks.
+One major challenge in implementing quantum cryptographic systems is their high cost. Specialized equipment, such as single-photon detectors, quantum repeaters, and dedicated fiber-optic channels, makes QKD prohibitively expensive for most organizations. This limits its accessibility, particularly for small and medium-sized enterprises. Furthermore, the infrastructure requirements for QKD systems are substantial. They often necessitate dedicated hardware and communication channels, such as leased optical fibers or free-space optical links. These requirements not only increase costs but also make integration with existing communication networks difficult.
 
-    The security of QKD is also heavily dependent on implementation. While the theoretical principles of quantum mechanics ensure security, practical systems are prone to errors and vulnerabilities. Poorly engineered components can introduce flaws, and the sensitivity of quantum systems to external disturbances makes them challenging to validate and deploy reliably.
+Another limitation of QKD is its range. Photon loss in optical fibers restricts the effective distance of QKD to a few hundred kilometers. Extending this range requires quantum repeaters, which are still in experimental stages and not widely available. Additionally, QKD systems frequently rely on trusted relay nodes to extend communication distances. These nodes, while solving some distance issues, introduce vulnerabilities to insider attacks, increasing overall security risks.
 
-    Looking toward the future, quantum computing poses a significant threat to existing cryptographic systems. Algorithms like Shor’s algorithm allow quantum computers to break widely used cryptographic schemes, such as RSA, ECC, and Diffie-Hellman, by solving complex mathematical problems exponentially faster than classical computers. This would compromise the security of nearly all current digital communication.
+The security of QKD is also heavily dependent on implementation. While the theoretical principles of quantum mechanics ensure security, practical systems are prone to errors and vulnerabilities. Poorly engineered components can introduce flaws, and the sensitivity of quantum systems to external disturbances makes them challenging to validate and deploy reliably.
 
-    To mitigate this threat, researchers are actively developing post-quantum cryptographic algorithms. These algorithms are designed to resist attacks from both classical and quantum computers. Organizations like the National Institute of Standards and Technology (NIST) are leading efforts to standardize quantum-resistant cryptographic solutions, ensuring secure communication in the face of advancing quantum technologies.
+Looking toward the future, quantum computing poses a significant threat to existing cryptographic systems. Algorithms like Shor’s algorithm allow quantum computers to break widely used cryptographic schemes, such as RSA, ECC, and Diffie-Hellman, by solving complex mathematical problems exponentially faster than classical computers. This would compromise the security of nearly all current digital communication.
+
+To mitigate this threat, researchers are actively developing post-quantum cryptographic algorithms. These algorithms are designed to resist attacks from both classical and quantum computers. Organizations like the National Institute of Standards and Technology (NIST) are leading efforts to standardize quantum-resistant cryptographic solutions, ensuring secure communication in the face of advancing quantum technologies.
+
+In conclusion, while quantum cryptography offers immense potential for secure communication, its implementation faces significant hurdles, including cost, infrastructure demands, and practical vulnerabilities. Simultaneously, the rise of quantum computing necessitates the urgent development of quantum-resistant cryptography to safeguard existing systems. Overcoming these challenges will require continued research, innovation, and collaboration across the fields of quantum mechanics and cybersecurity.
+
+
+***References:***
+
+Bennett, C. H., & Brassard, G. (1984). Quantum cryptography: Public key distribution and coin tossing. Proceedings of IEEE International Conference on Computers, Systems and Signal Processing. Retrieved from https://ieeexplore.ieee.org
+
+National Institute of Standards and Technology (NIST). (n.d.). Post-quantum cryptography project. Retrieved from https://csrc.nist.gov/projects/post-quantum-cryptography
+
+National Security Agency (NSA). (n.d.). Quantum key distribution synopsis. Retrieved from https://nsa.gov
+
+Pan, J. W., et al. (2017). Satellite-based entanglement distribution over 1200 kilometers. Nature. Retrieved from https://www.nature.com
+
+Quantum Untangled. (n.d.). Quantum key distribution and BB84 protocol. Medium. Retrieved from https://medium.com/quantum-untangled/quantum-key-distribution-and-bb84-protocol-6f03cc6263c5
+
+IBM Quantum. (n.d.). Quantum computing basics. Retrieved from https://quantum-computing.ibm.com
     
-    In conclusion, while quantum cryptography offers immense potential for secure communication, its implementation faces significant hurdles, including cost, infrastructure demands, and practical vulnerabilities. Simultaneously, the rise of quantum computing necessitates the urgent development of quantum-resistant cryptography to safeguard existing systems. Overcoming these challenges will require continued research, innovation, and collaboration across the fields of quantum mechanics and cybersecurity.
-    
-
-    References:
-    
-    Bennett, C. H., & Brassard, G. (1984). Quantum cryptography: Public key distribution and coin tossing. Proceedings of IEEE International Conference on Computers, Systems and Signal Processing. Retrieved from https://ieeexplore.ieee.org
-
-    National Institute of Standards and Technology (NIST). (n.d.). Post-quantum cryptography project. Retrieved from https://csrc.nist.gov/projects/post-quantum-cryptography
-
-    National Security Agency (NSA). (n.d.). Quantum key distribution synopsis. Retrieved from https://nsa.gov
-
-    Pan, J. W., et al. (2017). Satellite-based entanglement distribution over 1200 kilometers. Nature. Retrieved from https://www.nature.com
-
-    Quantum Untangled. (n.d.). Quantum key distribution and BB84 protocol. Medium. Retrieved from https://medium.com/quantum-untangled/quantum-key-distribution-and-bb84-protocol-6f03cc6263c5
-
-    IBM Quantum. (n.d.). Quantum computing basics. Retrieved from https://quantum-computing.ibm.com
-    
-    ```
 
 
 
@@ -154,28 +154,27 @@ This assignment is designed to introduce students to the principles of quantum c
 
     - A company wants to implement a secure communication channel between two remote offices using QKD. Identify the primary challenges the company may face and propose solutions to address them. Your response should be around 200 words.
     
-        ```
-        If a company wants to set up Quantum Key Distribution (QKD) for secure communication between two remote offices, they will face some key challenges:
+### ***Response:***
 
-            - Infrastructure Problems: QKD needs special fiber-optic cables or free-space channels. Over long distances, the signal weakens, and free-space channels can be disrupted by bad weather.
-            
-            - High Costs: Setting up QKD requires expensive equipment like single-photon detectors and maintaining it adds more expenses.
+If a company wants to set up Quantum Key Distribution (QKD) for secure communication between two remote offices, they will face some key challenges:
 
-            - Distance Limits: QKD doesn’t work well over long distances without special devices called quantum repeaters, which are still being developed.
-            
-            - Security Risks: To make QKD work over long distances, trusted relay stations are used, but these can be targeted by insider threats.
-        
-        
-        Solutions:
+- Infrastructure Problems: QKD needs special fiber-optic cables or free-space channels. Over long distances, the signal weakens, and free-space channels can be disrupted by bad weather.
 
-            - Use quantum satellites to cover long distances without relying on cables.
-            
-            - Combine QKD with traditional encryption to save on costs and make the system more flexible.
-            
-            - Partner with existing QKD providers to reduce setup and maintenance costs.
-            
-            - Use post-quantum encryption alongside QKD to stay secure while the technology improves.
+- High Costs: Setting up QKD requires expensive equipment like single-photon detectors and maintaining it adds more expenses.
 
-        ```
-<br>
+- Distance Limits: QKD doesn’t work well over long distances without special devices called quantum repeaters, which are still being developed.
+
+- Security Risks: To make QKD work over long distances, trusted relay stations are used, but these can be targeted by insider threats.
+
+
+Solutions:
+
+- Use quantum satellites to cover long distances without relying on cables.
+
+- Combine QKD with traditional encryption to save on costs and make the system more flexible.
+
+- Partner with existing QKD providers to reduce setup and maintenance costs.
+
+- Use post-quantum encryption alongside QKD to stay secure while the technology improves.
+
 
