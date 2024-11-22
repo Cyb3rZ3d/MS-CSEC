@@ -3,13 +3,11 @@ Ruben Valdez
 CSEC5323 | Cryptography and Secure Communication
 Friday's @ 4pm
 Prof. Robert Jones
-Assignment: Slumdog Millionair
+Assignment: Slumdog Millionaire
 ```
 
 
 # Option 2: Theoretical Write-Up
-
-Provide a Theoretical Write-up and at the end provide apa citations for references used.
 
 # 1. Currency Concept (40 points) 
 
