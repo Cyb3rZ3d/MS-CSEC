@@ -11,11 +11,16 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
+import tensorflow as tf
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder, StandardScaler
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import classification_report, accuracy_score, confusion_matrix
 from scipy.stats import chi2_contingency
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
+from time import time
+
+
 
 def load_and_preprocess_data(file_path):
     """
