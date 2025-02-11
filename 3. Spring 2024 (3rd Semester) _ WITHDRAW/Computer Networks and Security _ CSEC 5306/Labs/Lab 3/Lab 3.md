@@ -2,7 +2,7 @@
 CSEC 5306 | Computer Networks & Security <br>
 Prof. Alsmadi, Izzat <br>
 Lab 3 - 'mi-img' <br>
-Due: Feb. 12, 2024 <br>
+Due: Feb. 9, 2025 <br>
 
 
 # `MI-IMG` Injection
