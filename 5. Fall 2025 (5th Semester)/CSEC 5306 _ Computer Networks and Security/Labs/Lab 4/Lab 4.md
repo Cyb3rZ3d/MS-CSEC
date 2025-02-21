@@ -2,7 +2,7 @@
 CSEC 5306 | Computer Networks & Security <br>
 Prof. Alsmadi, Izzat <br>
 Lab 4 - `hydra_telnet.pcap` and `nmap.pcap` <br>
-Due: Feb. 20, 2024 <br>
+Due: Feb. 20, 2025 <br>
 
 
 
