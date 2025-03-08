@@ -93,6 +93,7 @@ Task:
 - Sort the results in descending order based on frequency. 
 - Output only the top 10 most frequent HTTP status codes and their counts. 
 
+![alt text](Part-B_Q-1.png)
 
 
 ## Q-2: Identify the Top 5 IP Addresses Generating the Most Errors (4xx and 5xx Status 
@@ -106,15 +107,13 @@ Task:
 4. Output only the top 5 IPs generating the most errors.
 
 
+![alt text](Part-B_Q-2.png)
 
 
 
+<br><br>
 
-
-
----
-
-References:
+# References:
 
 Doersch, C. (2016). Tutorial on variational autoencoders. arXiv preprint arXiv:1606.05908.
 

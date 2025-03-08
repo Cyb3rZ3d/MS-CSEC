@@ -1,4 +1,3 @@
-#Ruben_Valdez_CSEC5311_SP25_Assignment_4_Part B-2.py
 from mrjob.job import MRJob
 from mrjob.step import MRStep
 import re
@@ -106,8 +105,7 @@ def main():
             print("\nNo errors found in the log file.")
             sys.exit(0)
 
-        print("\nPart-B | Q-2")
-        print("Top 5 IPs Generating the Most Errors (4xx & 5xx)\n")
+        print("\nTop 5 IPs Generating the Most Errors (4xx & 5xx):\n")
         print(f"{'IP Address':<18}{'Total Errors':<15}{'Client Errors':<15}{'Server Errors':<15}{'Error Codes'}")
         print("=" * 100)
 
@@ -120,7 +118,7 @@ def main():
 
         if total_errors_entry:
             print("=" * 100)
-            print(f"{'TOTAL ERRORS':<18}{total_errors_entry[0]:<15}{total_errors_entry[1]:<15}{total_errors_entry[2]:<15}{total_errors_entry[3]}\n")
+            print(f"{'TOTAL ERRORS':<18}{total_errors_entry[0]:<15}{total_errors_entry[1]:<15}{total_errors_entry[2]:<15}{total_errors_entry[3]}")
 
 if __name__ == '__main__':
     main()
