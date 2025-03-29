@@ -3,7 +3,7 @@ CSEC 5311 | Big Data Analysis and Security <br>
 Prof. Hossain, Tamjid <br>
 Bonus In-Class _ Lab 3
 
-<br><br>
+<br>
 
 
 # Creating a digital watermarking using `OpenStego`
