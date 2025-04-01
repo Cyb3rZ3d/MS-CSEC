@@ -1,0 +1,7 @@
+#requirements.txt
+
+flwr
+torch
+pandas
+scikit-learn
+numpy
