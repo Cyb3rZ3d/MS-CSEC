@@ -1,8 +1,4 @@
-#model.py
-
-"""
-Defines the logistic regression model used for federated learning.
-"""
+# model.py
 
 import torch.nn as nn
 

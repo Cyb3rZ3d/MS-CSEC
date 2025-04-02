@@ -1,4 +1,4 @@
-#client.py
+# client.py
 
 """
 Implements the Flower client interface for federated training.

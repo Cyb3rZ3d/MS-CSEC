@@ -1,15 +1,10 @@
-#data_loader.py
-
-"""
-Handles dataset download, preprocessing, and partitioning for federated learning.
-
-Uses the US Census Income dataset (also known as the Adult dataset) from the UCI repository.
-"""
+# data_loader.py
 
 import pandas as pd
 import torch
 from sklearn.preprocessing import LabelEncoder, StandardScaler
 from torch.utils.data import TensorDataset, DataLoader
+from sklearn.model_selection import train_test_split
 
 class CensusDataLoader:
     def __init__(self):
@@ -20,16 +15,6 @@ class CensusDataLoader:
         ]
 
     def load_and_preprocess(self):
-        """
-        Downloads and preprocesses the US Census Income dataset:
-        - Handles missing values
-        - Encodes categorical variables
-        - Normalizes features
-
-        Returns:
-            X (np.ndarray): Features
-            y (pd.Series): Labels
-        """
         df = pd.read_csv(
             "https://archive.ics.uci.edu/ml/machine-learning-databases/adult/adult.data",
             header=None, names=self.column_names, na_values=" ?"
@@ -49,12 +34,6 @@ class CensusDataLoader:
         return X, y
 
     def partition_data(self, X, y):
-        """
-        Partitions data into 5 non-IID clients based on age groups.
-
-        Returns:
-            dict: Client ID to DataLoader mapping
-        """
         clients_data = {}
         df = pd.DataFrame(X)
         df["target"] = y
@@ -70,3 +49,10 @@ class CensusDataLoader:
             clients_data[i] = loader
 
         return clients_data
+
+    def create_testloader(self, X, y):
+        _, X_test, _, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+        tx = torch.tensor(X_test, dtype=torch.float32)
+        ty = torch.tensor(y_test, dtype=torch.long)
+        testloader = DataLoader(TensorDataset(tx, ty), batch_size=64)
+        return testloader
