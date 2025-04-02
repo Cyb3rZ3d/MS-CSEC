@@ -1,7 +1,0 @@
-{
-    "python.testing.pytestArgs": [
-        "5_Fall_2025_5th_Semester"
-    ],
-    "python.testing.unittestEnabled": false,
-    "python.testing.pytestEnabled": true
-}
