@@ -83,13 +83,13 @@ Performance is visualized after each communication round:
 
     ![alt text](image-7.png)
 
-    ![alt text](../../../../accuracy_vs_rounds.png)
+    ![alt text](accuracy_vs_rounds.png)
 
 - Loss vs. Communication Rounds:
 
     ![alt text](image-8.png)
 
-    ![alt text](../../../../loss_vs_rounds.png)
+    ![alt text](loss_vs_rounds.png)
 
 - Client Accuracy Table:
 
