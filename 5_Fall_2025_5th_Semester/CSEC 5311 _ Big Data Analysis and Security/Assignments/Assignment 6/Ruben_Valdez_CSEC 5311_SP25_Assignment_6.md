@@ -9,9 +9,9 @@ C:\Users\rubva\OneDrive - Texas A&M University-San Antonio\TAMUSA\MS CyberSecuri
 
 # Task 1: Number of Trips per Hour of Day
 
-%HADOOP_HOME%\share\hadoop\tools\lib\hadoop-streaming-3.0.0.jar
+    %HADOOP_HOME%\share\hadoop\tools\lib\hadoop-streaming-3.0.0.jar
 
-C:\Hadoop\hadoop-3.0.0\share\hadoop\tools\lib\hadoop-streaming-3.0.0.jar
+    C:\Hadoop\hadoop-3.0.0\share\hadoop\tools\lib\hadoop-streaming-3.0.0.jar
 
 
 ![alt text](image.png)
