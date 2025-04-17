@@ -297,7 +297,13 @@ In this task I Calculate the average `fare_amount` for each group of trips based
 
 
 
+C:\Users\rubva\GitHub\MS-CSEC\5_Fall_2025_5th_Semester\CSEC 5311 _ Big Data Analysis and Security\Assignments\Assignment 6
+
+5_Fall_2025_5th_Semester\CSEC 5311 _ Big Data Analysis and Security\Assignments\Assignment 6
+
+cp ~/Hadoop-Assignment/*.py /mnt/c/Users/rubva/Documents/Hadoop-Files
 
 
 
-
+cp ~/Hadoop-Assignment/
+'/mnt/c/Users/rubva/GitHub/MS-CSEC/5_Fall_2025_5th_Semester/CSEC 5311 _ Big Data Analysis and Security/Assignments/Assignment 6'

@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 import sys
+import csv
 from datetime import datetime
 
-for line in sys.stdin:
+for row in csv.reader(sys.stdin):
     try:
-        fields = line.strip().split(',')
-        if fields[0] == 'tpep_pickup_datetime':  # Skip header
-            continue
-        pickup_time = fields[0]
-        hour = datetime.strptime(pickup_time, '%Y-%m-%d %H:%M:%S').hour
-        print(f"{hour:02d}\t1")
-    except Exception as e:
+        pickup_time = row[1]  # index 1 = tpep_pickup_datetime
+        if pickup_time == "tpep_pickup_datetime":
+            continue  # skip header
+        hour = datetime.strptime(pickup_time, "%Y-%m-%d %H:%M:%S").strftime("%H:00")
+        print(f"{hour}\t1")
+    except Exception:
         continue

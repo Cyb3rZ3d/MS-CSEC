@@ -2,17 +2,18 @@
 import sys
 
 current_hour = None
-count = 0
+trip_count = 0
 
 for line in sys.stdin:
-    hour, trip = line.strip().split('\t')
+    hour, count = line.strip().split('\t')
+    count = int(count)
     if current_hour == hour:
-        count += int(trip)
+        trip_count += count
     else:
-        if current_hour is not None:
-            print(f"{current_hour}:00\t{count} trips")
+        if current_hour:
+            print(f"{current_hour}\t{trip_count} trips")
         current_hour = hour
-        count = int(trip)
+        trip_count = count
 
-if current_hour is not None:
-    print(f"{current_hour}:00\t{count} trips")
+if current_hour:
+    print(f"{current_hour}\t{trip_count} trips")
