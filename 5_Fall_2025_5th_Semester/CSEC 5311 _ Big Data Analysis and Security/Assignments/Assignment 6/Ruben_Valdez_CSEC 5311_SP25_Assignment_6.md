@@ -159,39 +159,138 @@ Article used for the assist to complete the steps:  https://medium.com/@farimomo
         ![alt text](image-10.png)  ![alt text](image-11.png)
 
 
-<br><br><br>
+<br><br>
 
 # Task 1: Number of Trips per Hour of Day
 
-1. Created the mapper script; 
+Brief overview, the goal is to count how many trips started at each hour of the day using the `tpep_pickup_datetime` column.  Mapper, `mapper_task_1.py`, reads each CSV row, skips the header, extrans the hour from the `tpep_pickup_datetime` string, and emites the hour in HH:00 formate and the number 1; whereas, the reducer, `reducer_task_1.py`, aggregates the count of the trips for each hours, sums up all the 1's for the same hour, and prints the total number of trips per hour.
 
-- mapper_task_1.py  
+1. Created the mapper and reducer script; 
+
+    - mapper_task_1.py  
         
+        ![alt text](image-13.png)
+
+    - reducer_task_1.py
+
+        ![alt text](image-14.png)
 
 
-- reducer_task_1.py
+2. Running the the following command:
+
+        hadoop jar ~/hadoop/share/hadoop/tools/lib/hadoop-streaming-3.0.0.jar \
+        -input yellow_tripdata_2016-03.csv \
+        -output task_1_output \
+        -mapper mapper_task_1.py \
+        -reducer reducer_task_1.py \
+        -file mapper_task_1.py \
+        -file reducer_task_1.py
+
+    - Output:
+
+        ![alt text](image-3.png)
 
 
-
-
-![alt text](image-3.png)
-
+<br><br>
 
 # Task 2: Most Popular Pickup Location (Zone ID or Coordinates)
 
+Finding the most frequent pickup location using GPS coordinates (pickup_longitude, pickup_latitude).  The mapper, `mapper_task_2.py`, reads the CSV rows, skips the header, Extracts pickup_longitude, and pickup_latitude; whereas, the reducer, `reducer_task_2.py`, aggregates counts for each unique coordinate, tracks the one with the highest count as it processes input, and then outputs the coordinate with the most trips.
+
+1. Created the mapper and reducer script; 
+    
+    - mapper_task_1.py 
+
+        ![alt text](image-15.png)
+
+    - reducer_task_1.py
+        ![alt text](image-16.png)
+
+    - Change permission to executable
+
+            chmod +x mapper_task_2.py reducer_task_2.py
 
 
+        ![alt text](image-17.png)
+
+    - Running the the following command:
+
+            hadoop jar ~/hadoop/share/hadoop/tools/lib/hadoop-streaming-3.0.0.jar \
+            -input yellow_tripdata_2016-03.csv \
+            -output task_2_output \
+            -mapper mapper_task_2.py \
+            -reducer reducer_task_2.py \
+            -file mapper_task_2.py \
+            -file reducer_task_2.py
+
+    - Running `cat` to review the output I wasn't sure if this was correct, so I attempted to create another script for mapper and reducer and modifying the script
+
+        ![alt text](image-18.png)
+
+2. Modified scripts to compare results using longitude and latitude
+
+    - mapper_task_2-1.py
+
+        ![alt text](image-19.png)
+
+    - reducer_task_2-1.py
+
+        ![alt text](image-20.png)
+
+    - Running the following command: 
+
+            hadoop jar ~/hadoop/share/hadoop/tools/lib/hadoop-streaming-3.0.0.jar \
+            -input yellow_tripdata_2016-03.csv \
+            -output task_2-1_output \
+            -mapper mapper_task_2-1.py \
+            -reducer reducer_task_2-1.py \
+            -file mapper_task_2-1.py \
+            -file reducer_task_2-1.py
+
+    - Output and results
+
+        ![alt text](image-21.png)
+
+ 
+Not a 100% confident in identifying the correct results.  But I would have to say it's within the first output result for `task_2_output`.  But I attempted both scripts because I wanted to test and gain further expereince in coding.   
 
 
-
+<br><br>
 
 # Task 3: Average Fare per Passenger Count 
 
+In this task I Calculate the average `fare_amount` for each group of trips based on `passenger_count`.  In the Mapper, `mapper_task_3.py`, the script reads each CSV row, skips the header, extracts the `passenger_count` and the `fare_amount`, and emits the `passenger_count > fare_amount`; whereas, the reducer, `reducer_task_3.py`, groups all fare amounts by passenger_count, calculates total fare and number of trips and average fare, and then outputs the average fare by group.
+
+1. Created mapper and reducer python scripts
+
+    - mapper_task_3.py
+
+        ![alt text](image-23.png)
+
+    - reducer_task_3.py
+
+        ![alt text](image-24.png)
+
+    - Changed permissions of the scripts to be executable
+
+            chmod +x mapper_task_3.py reducer_task_3.py
+
+        ![alt text](image-22.png)
 
 
+2. Running the the following command:
 
+        hadoop jar ~/hadoop/share/hadoop/tools/lib/hadoop-streaming-3.0.0.jar \
+        -input yellow_tripdata_2016-03.csv \
+        -output task_3_output \
+        -mapper mapper_task_3.py \
+        -reducer reducer_task_3.py \
+        -file mapper_task_3.py \
+        -file reducer_task_3.py
 
+    - Running `cat` to review the output 
 
+        ![alt text](image-25.png)
 
 
 
