@@ -163,7 +163,13 @@ Article used for the assist to complete the steps:  https://medium.com/@farimomo
 
 # Task 1: Number of Trips per Hour of Day
 
+1. Created the mapper script; 
 
+- mapper_task_1.py  
+        
+
+
+- reducer_task_1.py
 
 
 
