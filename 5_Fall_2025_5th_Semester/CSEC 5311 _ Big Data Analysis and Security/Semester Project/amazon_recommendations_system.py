@@ -9,12 +9,12 @@ import re
 
 # Step 2: Initialize Spark Session
 spark = SparkSession.builder \
-    .appName("Amazon Co-Purchase Recommendation System") \
+    .appName("Amazon Co-Purchase Recommendation System") 
     .getOrCreate()
 
 # Step 3: Load and Preprocess Dataset
 # Define the updated file path to your dataset
-file_path = r"C:\Users\rubva\OneDrive - Texas A&M University-San Antonio\TAMUSA\MS CyberSecurity\5 _ Spring 2025\Big Data Analysis and Security _ CSEC 5311\Project\amazon-meta\amazon-meta.txt"
+file_path = r"C:\Users\rubva\OneDrive - Texas A&M University-San Antonio\TAMUSA\MS CyberSecurity\5 _ Spring 2025\Big Data Analysis and Security _ CSEC 5311\Project\amazon-meta.txt"
 
 # Read the file into RDD
 rdd = spark.sparkContext.textFile(file_path)
