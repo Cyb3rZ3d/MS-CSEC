@@ -1,0 +1,69 @@
+## Visualization Tasks
+
+### a. Create a clustered column chart showing the average Claim Amount by Policy Type.
+
+1. **Load the Data**:
+   - Open Power BI Desktop.
+   - Click on "Get Data" and select "CSV" to import your `HDC_data_copy(2).csv` file.
+   - Load the data into Power BI.
+
+2. **Create the Clustered Column Chart**:
+   - In the "Visualizations" pane, select the "Clustered column chart" icon.
+   - Drag the `PolicyType` field to the "X-axis" area.
+   - Drag the `ClaimAmount` field to the "Values" area.
+   - Click on the drop-down arrow next to `ClaimAmount` in the "Values" area and select "Average".
+
+3. **Format the Chart**:
+   - Click on the chart to select it.
+   - In the "Visualizations" pane, click on the "Format" button (paint roller icon).
+   - Adjust the formatting options as needed (e.g., title, colors, data labels).
+
+### b. Build a donut chart to display the percentage distribution of claims across Regions.
+
+1. **Create the Donut Chart**:
+   - In the "Visualizations" pane, select the "Donut chart" icon.
+   - Drag the `Region` field to the "Legend" area.
+   - Drag the `ClaimID` field to the "Values" area. Power BI will automatically count the number of claims per region.
+
+2. **Format the Donut Chart**:
+   - Click on the donut chart to select it.
+   - In the "Visualizations" pane, click on the "Format" button (paint roller icon).
+   - Under "Detail labels," set the "Label style" to "Category, data value" to show both the region and the percentage.
+   - Adjust other formatting options as needed (e.g., colors, title, etc.).
+
+### c. Create a line and stacked column chart showing Claim Amounts and Fraud Risk Scores over time.
+
+1. **Create the Line and Stacked Column Chart**:
+   - In the "Visualizations" pane, select the "Line and stacked column chart" icon.
+   - Drag the `ClaimSubmissionDate` field to the "X-axis" area.
+   - Drag the `ClaimAmount` field to the "Column values" area.
+   - Drag the `FraudRiskScore` field to the "Line values" area.
+
+2. **Format the Chart**:
+   - Click on the chart to select it.
+   - In the "Visualizations" pane, click on the "Format" button (paint roller icon).
+   - Adjust the formatting options as needed (e.g., title, colors, data labels).
+   - Under "X-axis," set the "Type" to "Categorical" to ensure dates are displayed correctly:
+     - Click on the chart to select it.
+     - In the "Visualizations" pane, click on the "Format" button (paint roller icon).
+     - Scroll down to find the "X-axis" section and click to expand it.
+     - Under the "Type" dropdown, select "Categorical".
+
+### d. Design an interactive dashboard with at least three visualizations (you can use visualization from previous questions-a,b,c). Ensure the dashboard supports dynamic filtering by Claim Status.
+
+1. **Create the Dashboard**:
+   - Arrange the three visualizations (clustered column chart, donut chart, and line and stacked column chart) on the report canvas.
+   - Resize and position the visualizations as needed to create a cohesive layout.
+
+2. **Add a Slicer for Claim Status**:
+   - In the "Visualizations" pane, select the "Slicer" icon.
+   - Drag the `ClaimStatus` field to the "Field" area of the slicer.
+   - Position the slicer on the dashboard.
+
+3. **Test the Interactivity**:
+   - Click on different values in the slicer to ensure that the visualizations update dynamically based on the selected Claim Status.
+
+4. **Save and Publish**:
+   - Save your Power BI report.
+   - If needed, publish the report to the Power BI service for sharing and collaboration.
+
