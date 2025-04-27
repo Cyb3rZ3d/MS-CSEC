@@ -1,124 +1,103 @@
 # amazon_recommendation_system.py
 
-# Step 1: Import necessary libraries
 from pyspark.sql import SparkSession
 from pyspark.ml.recommendation import ALS
 from pyspark.ml.evaluation import RegressionEvaluator
-from pyspark.sql.functions import col
+from pyspark.sql import Row
 import re
-import os
 
-# Step 2: Prompt user for file path
-#file_path = input("Enter the full path to your amazon-meta.txt file: ").strip()
-file_path = input("Enter the full path to your amazon-meta.txt file: ").strip().strip('"')
+# Function to create Spark session (limited to 2g memory)
+def create_spark_session():
+    spark = SparkSession.builder \
+        .appName("Amazon Co-Purchase Recommendation System") \
+        .config("spark.driver.memory", "2g") \
+        .getOrCreate()
+    return spark
 
-if not os.path.isfile(file_path):
-    print("[ERROR] Invalid file path. Please check and try again.")
-    exit(1)
+# Function to load and preprocess data
+def load_and_preprocess_data(file_path):
+    print("[INFO] Loading and preprocessing data...")
+    user_product_pairs = []
+    with open(file_path, 'r', encoding='latin-1') as file:
+        current_product = None
+        for line in file:
+            line = line.strip()
+            if line.startswith("Id"):
+                continue
+            if line.startswith("ASIN"):
+                asin_match = re.match(r'ASIN:\s+(\S+)', line)
+                if asin_match:
+                    current_product = asin_match.group(1)
+            if line.startswith("  similar") and current_product:
+                parts = line.split()
+                similar_products = parts[2:]  # Skip 'similar' count
+                for similar_product in similar_products:
+                    user_product_pairs.append(Row(user=current_product, item=similar_product, rating=1.0))
+    print(f"[INFO] Total co-purchase pairs extracted: {len(user_product_pairs)}")
+    return user_product_pairs
 
-# Step 3: Initialize Spark Session
-spark = SparkSession.builder \
-    .appName("Amazon Co-Purchase Recommendation System") \
-    .getOrCreate()
+# Function to train ALS model
+def train_als_model(ratings_df):
+    print("[INFO] Training ALS model...")
+    als = ALS(
+        maxIter=10,
+        regParam=0.1,
+        userCol="user_index",
+        itemCol="item_index",
+        ratingCol="rating",
+        coldStartStrategy="drop",
+        nonnegative=True
+    )
+    model = als.fit(ratings_df)
+    return model
 
-# Step 4: Load Dataset
-rdd = spark.sparkContext.textFile(file_path)
+# Function to evaluate the model
+def evaluate_model(model, ratings_df):
+    print("[INFO] Evaluating model...")
+    predictions = model.transform(ratings_df)
+    evaluator = RegressionEvaluator(
+        metricName="rmse",
+        labelCol="rating",
+        predictionCol="prediction"
+    )
+    rmse = evaluator.evaluate(predictions)
+    print(f"[RESULT] Root-mean-square error = {rmse:.4f}")
 
-# Check if file was loaded correctly
-if rdd.isEmpty():
-    print("[ERROR] The file was not loaded. Please check the file path and ensure the file exists.")
+# Function to show sample recommendations
+def show_recommendations(model, user_index_mapping, num_recommendations=5):
+    print("[INFO] Generating sample recommendations...")
+    users = user_index_mapping.select("user_index").limit(5).collect()
+    for user_row in users:
+        user_id = user_row.user_index
+        recommendations = model.recommendForUserSubset(user_index_mapping.filter(user_index_mapping.user_index == user_id), num_recommendations)
+        recommendations.show(truncate=False)
+
+# Main function
+def main():
+    file_path = "amazon-meta.txt"  # Make sure it's in your folder
+
+    spark = create_spark_session()
+
+    user_product_pairs = load_and_preprocess_data(file_path)
+    ratings_df = spark.createDataFrame(user_product_pairs)
+
+    # Index users and items to integers (ALS needs numeric IDs)
+    from pyspark.ml.feature import StringIndexer
+
+    user_indexer = StringIndexer(inputCol="user", outputCol="user_index")
+    item_indexer = StringIndexer(inputCol="item", outputCol="item_index")
+
+    ratings_df = user_indexer.fit(ratings_df).transform(ratings_df)
+    ratings_df = item_indexer.fit(ratings_df).transform(ratings_df)
+
+    model = train_als_model(ratings_df)
+    evaluate_model(model, ratings_df)
+
+    # Prepare user index mapping to sample recommendations
+    user_index_mapping = ratings_df.select("user", "user_index").distinct()
+    show_recommendations(model, user_index_mapping)
+
     spark.stop()
-    exit(1)
-else:
-    print("[INFO] File loaded successfully. Line count:", rdd.count())
 
-# Helper function to parse the file
-def parse_amazon_meta(rdd):
-    product_id_pattern = re.compile(r"Id:\s+(\d+)")
-    similar_pattern = re.compile(r"similar:\s+\d+\s+(.*)")
-
-    products = []
-    current_id = None
-
-    for line in rdd.collect():
-        product_match = product_id_pattern.search(line)
-        similar_match = similar_pattern.search(line)
-
-        if product_match:
-            current_id = int(product_match.group(1))
-
-        elif similar_match and current_id is not None:
-            similars = similar_match.group(1).split()
-            for similar_id in similars:
-                try:
-                    products.append((current_id, int(similar_id), 1))  # Using '1' as dummy rating
-                except ValueError:
-                    continue
-
-    return products
-
-# Parse the dataset
-parsed_data = parse_amazon_meta(rdd)
-
-# Show a sample of parsed data
-if parsed_data:
-    print("Sample parsed data:", parsed_data[:5])
-else:
-    print("No data parsed. Check file format or parsing logic.")
-
-# Create a DataFrame
-columns = ["user", "item", "rating"]
-df = spark.createDataFrame(parsed_data, columns)
-
-# Show the DataFrame structure
-df.show(5)
-
-# Step 5: Split the data into training and test sets
-(training, test) = df.randomSplit([0.8, 0.2], seed=42)
-
-# Step 6: Build the ALS model
-als = ALS(
-    maxIter=10,
-    regParam=0.1,
-    userCol="user",
-    itemCol="item",
-    ratingCol="rating",
-    coldStartStrategy="drop",
-    nonnegative=True
-)
-
-# Train the model
-model = als.fit(training)
-
-# Step 7: Evaluate the model
-predictions = model.transform(test)
-evaluator = RegressionEvaluator(
-    metricName="rmse",
-    labelCol="rating",
-    predictionCol="prediction"
-)
-rmse = evaluator.evaluate(predictions)
-print(f"Root-mean-square error = {rmse}")
-
-# Step 8: Generate top-10 product recommendations for all users
-user_recs = model.recommendForAllUsers(10)
-
-# Save recommendations to text file for Power BI visualization
-user_recs.write.mode("overwrite").text("./user_recommendations.txt")
-
-# Step 9: Stop Spark session
-spark.stop()
-
-# ---------------------------
-# How to Run This Program:
-# 1. Make sure you have PySpark installed.
-#    pip install pyspark
-# 2. Open a terminal inside VSCode.
-# 3. Execute:
-#    python amazon_recommendation_system.py
-# 4. Enter the full path to the amazon-meta.txt file when prompted.
-#
-# Output:
-# - RMSE printed on terminal.
-# - 'user_recommendations.txt' file generated for Power BI.
-# ---------------------------
+if __name__ == "__main__":
+    main()
