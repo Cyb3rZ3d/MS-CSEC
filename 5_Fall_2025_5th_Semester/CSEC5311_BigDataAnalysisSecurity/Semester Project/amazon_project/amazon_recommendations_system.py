@@ -10,7 +10,7 @@ from pyspark.ml.evaluation import RegressionEvaluator
 # ---------------------------
 # input_file_path = "/mnt/c/Users/rubva/GitHub/WSL_Ubuntu_20.04/amazon-meta.txt"
 # output_file_path = "/mnt/c/Users/rubva/GitHub/WSL_Ubuntu_20.04/amazon_recommendations_output.csv"
-input_file_path = "/home/rvaldez/Documents/MS-CSEC/5_Fall_2025_5th_Semester/CSEC5311_BigDataAnalysisSecurity/Semester Project/amazon_project"
+input_file_path = "/home/rvaldez/Desktop/amazon-meta.txt"
 output_file_path = "/home/rvaldez/Documents/MS-CSEC/5_Fall_2025_5th_Semester/CSEC5311_BigDataAnalysisSecurity/Semester Project/amazon_project/amazon_recommendations_output.csv"
 
 
