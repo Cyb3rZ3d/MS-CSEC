@@ -74,7 +74,7 @@ def show_recommendations(model, user_index_mapping, num_recommendations=5):
 
 # Main function
 def main():
-    file_path = "/home/rvaldez/Desktop/amazon-meta.txt"  # Make sure it's in your folder
+    file_path = 'C:\Users\rubva\Documents\amazon-meta.txt'  # Make sure it's in your folder
 
     spark = create_spark_session()
 
