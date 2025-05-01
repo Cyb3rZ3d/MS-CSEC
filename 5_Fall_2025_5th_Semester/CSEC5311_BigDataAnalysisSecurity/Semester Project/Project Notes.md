@@ -46,3 +46,24 @@ My project is:
 Analysis of Amazon co-purchasing data. You can come up with your own ideas of analyzing the Amazon co-purchasing data using machine learning algorithms. The data is stored here: http://snap.stanford.edu/data/amazon-meta.html. For example, use clustering algorithms to identify patterns. 
 Note: at the time of project selection, please briefly describe what you plan to do specifically.  
  
+
+
+
+
+Using the below details and the uploaded files, create a masters level paper ranging between 7-9 pages.
+
+Incorporate visuals, include figures to only be seen in the appendix, smooth sections transitions providing a brief introduction.
+
+http://snap.stanford.edu/data/amazon-meta.html
+
+________________
+
+URLs:
+http://localhost:4040/jobs/
+http://localhost:4040/stages/
+http://localhost:4040/storage/
+http://localhost:4040/environment/
+http://localhost:4040/SQL/
+
+________________
+
