@@ -70,24 +70,29 @@ https://www.cloudskillsboost.google/focuses/10445?catalog_rank=%7B%22rank%22%3A2
 
 - Task 1: Preview your application by clicking the web preview icon and selecting Preview on port 8080.
 
-
+    ![alt text](image-11.png)
 
 - Task 2: 'Execution Details ' from Cloud Build
 
-
+    ![alt text](image-12.png) ![alt text](image-13.png)
 
 - Task 3: 'Check my progress' - Deploy Container To Cloud Run 
 
-
+    ![alt text](image-14.png)
 
 - Task 4: a page showing 'the concurrency value has been reduced to "1" 
 
-
+    ![alt text](image-15.png) ![alt text](image-16.png)
 
 - Task 5: 'Check my progress' - Make Changes To The Website 
 
+    ![alt text](image-17.png)
 
 - Task 6: 'Check my progress' - Update website with zero downtime 'Fancy Store' web page with updated info, with your name displayed from the URL
+
+    ![alt text](image-19.png) ![alt text](image-18.png)
+
+
 
 
 
