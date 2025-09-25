@@ -1,7 +1,7 @@
 ***Ruben Valdez*** <br>
 CSCI/CSEC 5372 | Cloud Computing | Thursdays @ 4pm<br>
 Prof. Yang, Jeong <br>
-Project Assignment 1 <br>
+Project Assignment 1: Lab 1<br>
 Due by Sunday midnight, October 12, 2025
 
 ---
