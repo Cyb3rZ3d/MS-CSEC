@@ -14,12 +14,28 @@ Due by midnight, Sunday, September 28
 https://www.cloudskillsboost.google/focuses/1760?parent=catalog
 
 - Task 1: 'Test completed task' and 'Test your understanding'
+    
+    ![alt text](<Screenshot 2025-09-25 at 5.02.26 PM.png>)
 
 - Task 2: Test completed task' and 'Test your understanding'
 
+    ![alt text](<Screenshot 2025-09-25 at 5.06.48 PM.png>)
+    ![alt text](<Screenshot 2025-09-25 at 5.08.05 PM.png>)
+    ![alt text](<Screenshot 2025-09-25 at 5.07.35 PM.png>)
+
+    ![alt text](<Screenshot 2025-09-25 at 5.11.57 PM.png>)
+    ![alt text](<Screenshot 2025-09-25 at 5.14.27 PM.png>)
+    https://storage.googleapis.com/qwiklabs-gcp-03-c107b00009f7/kitten.png
+    ![alt text](<Screenshot 2025-09-25 at 5.13.49 PM.png>)
+
 - Task 3:  Any image presented, rather than kitten.png, from the publicly shared URL
 
+    ![alt text](<Screenshot 2025-09-25 at 5.19.30 PM.png>)
+    ![alt text](<Screenshot 2025-09-25 at 5.19.52 PM.png>)
+    ![alt text](<Screenshot 2025-09-25 at 5.20.23 PM.png>)
 
+
+<br><br>
 
 # ***Lab 2: Cloud SQL for MySQL: Qwik Start***
 
