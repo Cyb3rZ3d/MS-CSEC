@@ -18,14 +18,36 @@ https://www.cloudskillsboost.google/focuses/1774?parent=catalog
 
 - Task 2: 'Check my progress; - Create an instance and database
 
+    ![alt text](image-2.png)
+
 
 - Task 3: 'Check my progress; - Create a schema for your database 
+
+    ![alt text](image-3.png)
 
 
 - Task 4:  After inserting 3 rows into the DB table, insert information about yourself with your first and last names, and others. Query results of 'SELECT * FROM Singers' showing your name.
 
+    ![alt text](image-4.png)    
+
+    - Edited the table for user `Ruben Valdez` to include the DoB.
+
+        ![alt text](image-5.png)
+
+    - Deleting `SingerId 2`
+
+        ![alt text](image-6.png)
+
+    - Running query from using SQL statement in Spanner Studio
+
+        ![alt text](image-7.png)
+
 
 - Task 5: Test your knowledge
+
+    ![alt text](image-8.png)
+
+
 
 
 
