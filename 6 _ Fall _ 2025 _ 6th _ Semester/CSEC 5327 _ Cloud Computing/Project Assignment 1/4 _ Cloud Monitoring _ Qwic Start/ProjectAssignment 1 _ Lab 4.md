@@ -15,7 +15,7 @@ Cloud Monitoring: Qwik Start
 
 Task 1. Create a Compute Engine instance
 
-    ![alt text](image.png)
+![alt text](image.png)
 
 Task 2. Add Apache2 HTTP Server to your instance
 
