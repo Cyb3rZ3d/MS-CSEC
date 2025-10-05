@@ -2,8 +2,7 @@
 CSCI/CSEC 5372 | Cloud Computing | Thursdays @ 4pm<br>
 Prof. Yang, Jeong <br>
 Lab Assignment 5 <br>
-Due by midnight, Sunday, September 28
-
+Due by midnight, Sunday, Oct. 5, 2025
 ---
 
 <br><br>
