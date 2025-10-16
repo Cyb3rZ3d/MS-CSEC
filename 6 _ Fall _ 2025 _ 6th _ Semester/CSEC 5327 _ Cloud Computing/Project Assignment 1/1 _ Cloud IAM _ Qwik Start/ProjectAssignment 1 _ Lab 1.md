@@ -72,12 +72,3 @@ In this lab, I learned:
 
 ![alt text](image-9.png)
 
-
-
-<br><br>
-
-# 2. Introduction to SQL for BigQuery and Cloud SQL
-# 3. Multiple VPC Networks
-# 4. Cloud Monitoring: Qwic Start
-# 5. Managing Deployments Using Kubernetes Engine
-# 6. Develope your Google Cloud Network: Challenge Lab
