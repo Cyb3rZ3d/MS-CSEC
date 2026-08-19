@@ -59,6 +59,43 @@ The semester report preserves the following execution output from the project ru
 
 The Random Forest classification report records macro and weighted precision, recall, and F1 values of approximately 0.34 across a 12,000-record test set. In these captured runs, all three models performed near one-third accuracy, so the evidence supports an efficiency comparison more strongly than a predictive-performance advantage.
 
+## Report Evidence Gallery
+
+The following 30 original figures were extracted from the submitted semester report and are preserved in report order.
+
+| Sequence | Figure |
+|---:|---|
+| 01 | [Basic data exploration](report-evidence/01-basic-data-exploration.png) |
+| 02 | [Dataset schema](report-evidence/02-dataset-schema.png) |
+| 03 | [Descriptive statistics](report-evidence/03-descriptive-statistics.png) |
+| 04 | [Missing-value inventory](report-evidence/04-missing-values.png) |
+| 05 | [Missing-value cleaning](report-evidence/05-missing-value-cleaning.png) |
+| 06 | [Dataset preview](report-evidence/06-dataset-preview.png) |
+| 07 | [Dataset information](report-evidence/07-dataset-information.png) |
+| 08 | [Null-value check](report-evidence/08-null-value-check.png) |
+| 09 | [Month and weekday heatmap](report-evidence/09-month-weekday-heatmap.png) |
+| 10 | [Attack-type distribution](report-evidence/10-attack-type-distribution.png) |
+| 11 | [Protocol distribution](report-evidence/11-protocol-distribution.png) |
+| 12 | [Anomaly score by attack](report-evidence/12-anomaly-score-by-attack.png) |
+| 13 | [Source port by attack](report-evidence/13-source-port-by-attack.png) |
+| 14 | [Packet length by attack](report-evidence/14-packet-length-by-attack.png) |
+| 15 | [Payload word cloud](report-evidence/15-payload-word-cloud.png) |
+| 16 | [Random Forest code](report-evidence/16-random-forest-code.png) |
+| 17 | [Feature-importance code](report-evidence/17-feature-importance-code.png) |
+| 18 | [Preprocessing code](report-evidence/18-preprocessing-code.png) |
+| 19 | [Time-correlation code](report-evidence/19-time-correlation-code.png) |
+| 20 | [Browser and OS correlation code](report-evidence/20-browser-os-correlation-code.png) |
+| 21 | [Attack-time distribution](report-evidence/21-attack-time-distribution.png) |
+| 22 | [Source-port correlation code](report-evidence/22-source-port-correlation-code.png) |
+| 23 | [Source-port heatmap](report-evidence/23-source-port-heatmap.png) |
+| 24 | [Browser and OS analysis code](report-evidence/24-browser-os-analysis-code.png) |
+| 25 | [Operating-system distribution](report-evidence/25-operating-system-distribution.png) |
+| 26 | [Random Forest results](report-evidence/26-random-forest-results.png) |
+| 27 | [Dense-network training start](report-evidence/27-dense-network-training-start.png) |
+| 28 | [Dense-network training results](report-evidence/28-dense-network-training-results.png) |
+| 29 | [CNN training output](report-evidence/29-cnn-training-output.png) |
+| 30 | [CNN training history](report-evidence/30-cnn-training-history.png) |
+
 ## Project Progression
 
 1. `CyberSec_Analytics.py` - initial preprocessing, Random Forest classification, feature importance, correlations, and visual analysis.
